@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { serviceCategories, salonAddons } from "../data/servicesData";
 import type { ServiceItem } from "../types";
-import { Check, Clock, Sparkles, HelpCircle, ArrowRight } from "lucide-react";
+import { Check, Clock, ChevronDown, ChevronUp, Sparkles, ArrowRight, Shield } from "lucide-react";
 
 interface ServicesPricingProps {
   onSelectService: (categoryName: string, service: ServiceItem) => void;
@@ -9,144 +9,205 @@ interface ServicesPricingProps {
 
 export const ServicesPricing = ({ onSelectService }: ServicesPricingProps) => {
   const [activeTab, setActiveTab] = useState<string>("small-dogs");
+  const [expandedItemId, setExpandedItemId] = useState<string>("sd-complete");
 
   const currentCategory = serviceCategories.find((cat) => cat.id === activeTab) || serviceCategories[0];
 
+  const toggleExpand = (id: string) => {
+    setExpandedItemId((prev) => (prev === id ? "" : id));
+  };
+
   return (
-    <section id="leistungen" className="py-20 relative bg-white">
+    <section id="leistungen" className="py-24 relative bg-white text-left">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <div className="text-center max-w-3xl mx-auto space-y-4 mb-12">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[var(--color-primary-light)] text-[var(--color-primary)] text-xs font-semibold tracking-wider uppercase">
-            Transparente Preise &amp; Rundum-Pflege
+        {/* Editorial Section Header */}
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-16 pb-8 border-b border-stone-200">
+          <div className="space-y-3">
+            <span className="text-[11px] font-bold uppercase tracking-widest text-[var(--color-primary)] block">
+              Menü &amp; Behandlungen
+            </span>
+            <h2 className="font-serif-luxury text-3xl sm:text-5xl font-bold text-stone-900 tracking-tight">
+              Preise &amp; Leistungen nach Maß
+            </h2>
           </div>
-          <h2 className="font-serif-luxury text-3xl sm:text-4xl lg:text-5xl font-bold text-stone-900 tracking-tight">
-            Unsere Leistungen &amp; Pakete
-          </h2>
-          <p className="text-base text-stone-600 leading-relaxed">
-            Wählen Sie die passende Kategorie für Ihren Liebling. Alle Behandlungen beinhalten
-            hochwertige Bio-Pflegeprodukte, liebevolle Betreuung und sanfte Föhntechnik von Hand.
+          <p className="text-xs sm:text-sm text-stone-600 max-w-md leading-relaxed">
+            Transparente Preise ohne Überraschungen. Alle Pakete beinhalten sanfte Föhntechnik von Hand,
+            Bio-Kosmetik und professionelle Pfoten- &amp; Ohrenhygiene.
           </p>
         </div>
 
-        <div className="flex items-center justify-start sm:justify-center gap-2 overflow-x-auto pb-4 mb-10 no-scrollbar">
+        {/* Category Selector Pills */}
+        <div className="flex items-center gap-2 overflow-x-auto pb-4 mb-12 no-scrollbar">
           {serviceCategories.map((cat) => {
             const isActive = cat.id === activeTab;
             return (
               <button
                 key={cat.id}
-                onClick={() => setActiveTab(cat.id)}
-                className={"px-5 py-3 rounded-2xl text-xs sm:text-sm font-semibold whitespace-nowrap transition-all duration-200 cursor-pointer " + (
+                onClick={() => {
+                  setActiveTab(cat.id);
+                  if (cat.items.length > 0) setExpandedItemId(cat.items[0].id);
+                }}
+                className={"px-6 py-3 rounded-full text-xs font-bold whitespace-nowrap transition-all duration-200 cursor-pointer " + (
                   isActive
-                    ? "bg-[var(--color-primary)] text-white shadow-md shadow-[var(--color-primary)]/20 scale-105"
-                    : "bg-stone-100 hover:bg-stone-200/80 text-stone-700"
+                    ? "bg-stone-900 text-white shadow-md shadow-stone-900/10"
+                    : "bg-stone-100 hover:bg-stone-200 text-stone-700"
                 )}
               >
                 <span>{cat.categoryName}</span>
-                <span className={"ml-2 text-[11px] px-2 py-0.5 rounded-full " + (isActive ? "bg-white/20 text-white" : "bg-stone-200 text-stone-600")}>
-                  {cat.badge}
+                <span className={"ml-2 text-[10px] uppercase tracking-wider opacity-70"}>
+                  ({cat.badge})
                 </span>
               </button>
             );
           })}
         </div>
 
-        <div className="bg-stone-50 rounded-2xl p-4 sm:p-6 mb-10 border border-stone-200/70 text-left flex flex-col md:flex-row md:items-center justify-between gap-3">
+        {/* Category Intro Bar */}
+        <div className="mb-10 p-5 rounded-2xl bg-stone-50 border border-stone-200/80 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
           <div>
-            <span className="text-xs font-bold text-[var(--color-primary)] uppercase tracking-wider block mb-1">
+            <span className="font-bold text-stone-900 block mb-0.5">
               {currentCategory.categoryName} • {currentCategory.badge}
             </span>
-            <p className="text-sm font-medium text-stone-800">
-              {currentCategory.description}
-            </p>
-            <p className="text-xs text-stone-500 mt-0.5 italic">
-              {currentCategory.examples}
-            </p>
+            <p className="text-stone-600">{currentCategory.description}</p>
+            <p className="text-stone-400 italic text-[11px] mt-0.5">{currentCategory.examples}</p>
           </div>
-          <div className="shrink-0 text-xs text-stone-500 flex items-center gap-1.5 bg-white px-3 py-2 rounded-xl border border-stone-200">
-            <HelpCircle className="w-4 h-4 text-stone-400" />
-            <span>Preise können bei starker Verfilzung leicht variieren</span>
+          <div className="shrink-0 flex items-center gap-1.5 text-stone-500 bg-white px-3 py-1.5 rounded-xl border border-stone-200">
+            <Shield className="w-3.5 h-3.5 text-emerald-600" />
+            <span>100% Handtrocknung ohne Föhnbox</span>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-left items-stretch">
-          {currentCategory.items.map((item) => {
+        {/* Interactive Atelier Service List (NO generic box cards!) */}
+        <div className="space-y-4">
+          {currentCategory.items.map((item, idx) => {
+            const isExpanded = expandedItemId === item.id;
+            const itemNumber = (idx + 1).toString().padStart(2, "0");
+
             return (
               <div
                 key={item.id}
-                className={"rounded-3xl p-7 flex flex-col justify-between transition-all duration-300 relative " + (
-                  item.popular
-                    ? "bg-white border-2 border-[var(--color-primary)] shadow-xl shadow-[var(--color-primary)]/10 ring-4 ring-[var(--color-primary-light)]"
-                    : "bg-white border border-stone-200/90 shadow-sm hover:shadow-md hover:border-stone-300"
+                className={"border transition-all duration-300 rounded-3xl overflow-hidden " + (
+                  isExpanded
+                    ? "border-[var(--color-primary)] bg-[var(--color-primary-light)]/20 shadow-lg shadow-[var(--color-primary)]/5"
+                    : "border-stone-200/80 bg-stone-50/50 hover:bg-white hover:border-stone-300"
                 )}
               >
-                {item.popular && (
-                  <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-[var(--color-primary)] text-white text-[11px] font-bold px-3.5 py-1 rounded-full uppercase tracking-wider shadow-sm flex items-center gap-1">
-                    <Sparkles className="w-3 h-3" />
-                    <span>Sehr beliebt</span>
-                  </div>
-                )}
-
-                <div>
-                  <div className="flex items-baseline justify-between gap-2 mb-2">
-                    <h3 className="font-serif-luxury text-xl font-bold text-stone-900">
-                      {item.name}
-                    </h3>
-                  </div>
-
-                  <p className="text-xs text-stone-500 mb-4 min-h-[32px]">
-                    {item.tagline}
-                  </p>
-
-                  <div className="flex items-baseline gap-2 pb-5 border-b border-stone-100 mb-5">
-                    <span className="text-xs text-stone-400 font-medium">ab</span>
-                    <span className="text-3xl font-extrabold text-stone-900 tracking-tight">
-                      {item.price} €
+                {/* Main Accordion Row */}
+                <div
+                  onClick={() => toggleExpand(item.id)}
+                  className="p-6 sm:p-8 flex flex-col md:flex-row md:items-center justify-between gap-6 cursor-pointer select-none"
+                >
+                  <div className="flex items-start gap-6">
+                    <span className="font-serif-luxury text-2xl sm:text-3xl font-bold text-stone-300 group-hover:text-[var(--color-primary)]">
+                      {itemNumber}
                     </span>
-                    <span className="ml-auto inline-flex items-center gap-1 text-xs text-stone-500 bg-stone-100 px-2.5 py-1 rounded-lg">
-                      <Clock className="w-3.5 h-3.5 text-stone-400" />
-                      {item.duration}
-                    </span>
-                  </div>
 
-                  <div className="space-y-3 mb-8">
-                    <p className="text-[11px] font-bold text-stone-400 uppercase tracking-wider">
-                      Im Paket enthalten:
-                    </p>
-                    {item.features.map((feature, fIdx) => (
-                      <div key={fIdx} className="flex items-start gap-2.5 text-xs text-stone-700 leading-relaxed">
-                        <div className="w-4 h-4 rounded-full bg-[var(--color-primary-light)] text-[var(--color-primary)] flex items-center justify-center shrink-0 mt-0.5">
-                          <Check className="w-3 h-3 stroke-[3]" />
-                        </div>
-                        <span>{feature}</span>
+                    <div className="space-y-1">
+                      <div className="flex items-center gap-3 flex-wrap">
+                        <h3 className="font-serif-luxury text-xl sm:text-2xl font-bold text-stone-900">
+                          {item.name}
+                        </h3>
+                        {item.popular && (
+                          <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-[var(--color-primary)] text-white">
+                            <Sparkles className="w-2.5 h-2.5" />
+                            <span>Favorit</span>
+                          </span>
+                        )}
                       </div>
-                    ))}
+                      <p className="text-xs sm:text-sm text-stone-500">
+                        {item.tagline}
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center justify-between md:justify-end gap-6 shrink-0 pt-4 md:pt-0 border-t md:border-t-0 border-stone-200/60">
+                    <div className="text-left md:text-right">
+                      <span className="text-[11px] text-stone-400 uppercase tracking-wider block">Grundpreis</span>
+                      <span className="text-2xl font-extrabold text-stone-900">
+                        ab {item.price} €
+                      </span>
+                    </div>
+
+                    <div className="flex items-center gap-3">
+                      <button
+                        type="button"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          onSelectService(currentCategory.categoryName, item);
+                        }}
+                        className="px-5 py-2.5 rounded-full text-xs font-bold text-white bg-[var(--color-primary)] hover:bg-[var(--color-primary-hover)] shadow-sm transition-all hover:scale-105 cursor-pointer"
+                      >
+                        Buchen
+                      </button>
+
+                      <div className="w-8 h-8 rounded-full bg-stone-100 flex items-center justify-center text-stone-600">
+                        {isExpanded ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+                      </div>
+                    </div>
                   </div>
                 </div>
 
-                <button
-                  onClick={() => onSelectService(currentCategory.categoryName, item)}
-                  className={"w-full py-3.5 px-4 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-2 cursor-pointer " + (
-                    item.popular
-                      ? "bg-[var(--color-primary)] hover:bg-[var(--color-primary-hover)] text-white shadow-md shadow-[var(--color-primary)]/20"
-                      : "bg-stone-900 hover:bg-stone-800 text-white"
-                  )}
-                >
-                  <span>Diesen Service auswählen</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </button>
+                {/* Expanded Inclusions Drawer */}
+                {isExpanded && (
+                  <div className="px-6 sm:px-8 pb-8 pt-2 border-t border-stone-200/60 bg-white animate-in fade-in duration-200">
+                    <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-center pt-4">
+                      
+                      <div className="md:col-span-8 space-y-4">
+                        <div className="flex items-center gap-4 text-xs text-stone-500 pb-2">
+                          <span className="inline-flex items-center gap-1.5 bg-stone-100 px-3 py-1 rounded-lg">
+                            <Clock className="w-3.5 h-3.5 text-stone-500" />
+                            <span>Dauer: {item.duration}</span>
+                          </span>
+                          <span>•</span>
+                          <span>Inklusive individueller Fellanalyse</span>
+                        </div>
+
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                          {item.features.map((feat, fIdx) => (
+                            <div key={fIdx} className="flex items-start gap-2.5 text-xs text-stone-700">
+                              <div className="w-4 h-4 rounded-full bg-[var(--color-primary-light)] text-[var(--color-primary)] flex items-center justify-center shrink-0 mt-0.5">
+                                <Check className="w-3 h-3 stroke-[3]" />
+                              </div>
+                              <span className="leading-relaxed">{feat}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+
+                      <div className="md:col-span-4 bg-stone-50 rounded-2xl p-5 border border-stone-200/80 flex flex-col justify-between space-y-3">
+                        <div>
+                          <p className="text-[11px] font-bold uppercase tracking-wider text-stone-500">Möchten Sie dieses Paket?</p>
+                          <p className="text-xs text-stone-700 mt-1">
+                            Wir beraten Sie gerne unverbindlich und planen ausreichend Zeit für Ihren Liebling ein.
+                          </p>
+                        </div>
+                        <button
+                          type="button"
+                          onClick={() => onSelectService(currentCategory.categoryName, item)}
+                          className="w-full py-2.5 rounded-xl text-xs font-bold text-white bg-stone-900 hover:bg-stone-800 transition-all flex items-center justify-center gap-2 cursor-pointer"
+                        >
+                          <span>Für diesen Termin vormerken</span>
+                          <ArrowRight className="w-3.5 h-3.5" />
+                        </button>
+                      </div>
+
+                    </div>
+                  </div>
+                )}
               </div>
             );
           })}
         </div>
 
-        <div className="mt-16 bg-stone-50 rounded-3xl p-6 sm:p-8 border border-stone-200">
-          <div className="text-left mb-4">
-            <h4 className="font-serif-luxury text-lg font-bold text-stone-900">
-              Kleine Zusatzleistungen &amp; Einzelbehandlungen
+        {/* Addon Minimalist Bar */}
+        <div className="mt-16 pt-10 border-t border-stone-200">
+          <div className="mb-6">
+            <h4 className="font-serif-luxury text-xl font-bold text-stone-900">
+              Kleine Zusatzleistungen &amp; Einzeltermine
             </h4>
             <p className="text-xs text-stone-500">
-              Können zu jedem Paket flexibel hinzugebucht oder als schneller Kurzbesuch vereinbart werden:
+              Flexibel hinzubuchbar oder als schneller Einzelbesuch:
             </p>
           </div>
 
@@ -154,17 +215,15 @@ export const ServicesPricing = ({ onSelectService }: ServicesPricingProps) => {
             {salonAddons.map((addon, aIdx) => (
               <div
                 key={aIdx}
-                className="bg-white rounded-2xl p-4 border border-stone-200/80 flex items-center justify-between shadow-2xs"
+                className="bg-stone-50 rounded-2xl p-4 border border-stone-200/80 flex items-center justify-between"
               >
-                <div className="text-left">
+                <div>
                   <p className="text-xs font-bold text-stone-900">{addon.name}</p>
-                  <p className="text-[11px] text-stone-400">Dauer: {addon.duration}</p>
+                  <p className="text-[11px] text-stone-500">{addon.duration}</p>
                 </div>
-                <div className="text-right shrink-0 ml-2">
-                  <span className="text-sm font-extrabold text-[var(--color-primary)]">
-                    +{addon.price} €
-                  </span>
-                </div>
+                <span className="text-sm font-extrabold text-[var(--color-primary)] ml-2">
+                  +{addon.price} €
+                </span>
               </div>
             ))}
           </div>

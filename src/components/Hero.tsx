@@ -1,4 +1,4 @@
-import { Star, ShieldCheck, Heart, Sparkles, ArrowRight, MessageCircle } from "lucide-react";
+import { ArrowDownRight, Sparkles, MessageCircle, Star, ShieldCheck } from "lucide-react";
 
 interface HeroProps {
   onOpenBooking: () => void;
@@ -6,146 +6,159 @@ interface HeroProps {
 
 export const Hero = ({ onOpenBooking }: HeroProps) => {
   return (
-    <section className="relative overflow-hidden pt-8 pb-16 lg:pt-14 lg:pb-24">
-      <div className="absolute top-0 right-0 -mr-32 -mt-32 w-96 h-96 rounded-full bg-[var(--color-primary-light)] blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 left-0 -ml-32 -mb-32 w-96 h-96 rounded-full bg-[var(--color-gold-light)] blur-3xl pointer-events-none" />
+    <section className="relative overflow-hidden pt-6 pb-16 lg:pt-10 lg:pb-24 text-left">
+      
+      {/* Background ambient accents */}
+      <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-[var(--color-primary-light)] rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 left-10 w-[400px] h-[400px] bg-[var(--color-gold-light)] rounded-full blur-3xl pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        {/* Magazine Editorial Top Header */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end pb-10 border-b border-stone-200/70">
           
-          <div className="lg:col-span-7 space-y-6 text-left">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[var(--color-primary-light)] border border-[var(--color-primary-border)] text-[var(--color-primary)] text-xs font-semibold tracking-wide uppercase shadow-xs">
-              <Sparkles className="w-3.5 h-3.5" />
-              <span>Hundesalon &amp; Katzenpflege Giunia</span>
+          <div className="lg:col-span-8 space-y-4">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-stone-200/80 shadow-2xs text-[11px] font-semibold tracking-wider uppercase text-stone-600">
+              <span className="w-2 h-2 rounded-full bg-[var(--color-primary)]" />
+              <span>Haute Grooming Atelier • Hunde &amp; Katzen</span>
             </div>
 
-            <h1 className="font-serif-luxury text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-stone-900 leading-[1.15]">
-              Liebevolle Pflege &amp; Wellness für Ihren Vierbeiner –{" "}
-              <span className="italic font-normal text-[var(--color-primary)]">ganz ohne Stress.</span>
+            <h1 className="font-serif-luxury text-4xl sm:text-6xl lg:text-7xl font-semibold text-stone-900 leading-[1.08] tracking-tight">
+              Die Kunst sanfter Fellpflege.{" "}
+              <span className="italic font-normal text-[var(--color-primary)]">Ganz ohne Stress.</span>
             </h1>
-
-            <p className="text-base sm:text-lg text-stone-600 max-w-2xl leading-relaxed">
-              Willkommen bei Hundesalon Giunia. Wir verbinden fachgerechte Scherenschnitte,
-              wohltuende Pflegebäder und schonende Unterwollentfernung mit absoluter Ruhe,
-              Geduld und 100% veganer Bio-Kosmetik. Weil Ihr Tier nur das Beste verdient.
-            </p>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2 text-xs sm:text-sm text-stone-700">
-              <div className="flex items-center gap-2.5">
-                <div className="w-5 h-5 rounded-full bg-emerald-100 flex items-center justify-center shrink-0">
-                  <ShieldCheck className="w-3.5 h-3.5 text-emerald-700" />
-                </div>
-                <span>100% ohne Narkose &amp; ohne Beruhigungsmittel</span>
-              </div>
-              <div className="flex items-center gap-2.5">
-                <div className="w-5 h-5 rounded-full bg-amber-100 flex items-center justify-center shrink-0">
-                  <Star className="w-3.5 h-3.5 text-amber-600 fill-current" />
-                </div>
-                <span>4.9 / 5.0 Google Bewertung (über 180 Reviews)</span>
-              </div>
-              <div className="flex items-center gap-2.5">
-                <div className="w-5 h-5 rounded-full bg-rose-100 flex items-center justify-center shrink-0">
-                  <Heart className="w-3.5 h-3.5 text-[var(--color-primary)] fill-current" />
-                </div>
-                <span>Individuelle Termine ohne Fließband-Hektik</span>
-              </div>
-              <div className="flex items-center gap-2.5">
-                <div className="w-5 h-5 rounded-full bg-purple-100 flex items-center justify-center shrink-0">
-                  <Sparkles className="w-3.5 h-3.5 text-purple-700" />
-                </div>
-                <span>NEU: Emmi-Pet Ultraschall-Zahnreinigung</span>
-              </div>
-            </div>
-
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-4">
-              <button
-                onClick={onOpenBooking}
-                className="inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-2xl text-sm font-bold text-white bg-[var(--color-primary)] hover:bg-[var(--color-primary-hover)] shadow-lg shadow-[var(--color-primary)]/25 transition-all hover:-translate-y-0.5 cursor-pointer"
-              >
-                <span>Termin online anfragen</span>
-                <ArrowRight className="w-4 h-4" />
-              </button>
-
-              <a
-                href="#leistungen"
-                className="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-2xl text-sm font-semibold text-stone-700 bg-white hover:bg-stone-50 border border-stone-200 shadow-xs transition-all hover:border-stone-300"
-              >
-                <span>Leistungen &amp; Preise ansehen</span>
-              </a>
-
-              <a
-                href="https://wa.me/4917612345678?text=Hallo%20Hundesalon%20Giunia,%20ich%20m%C3%B6chte%20gerne%20einen%20Termin%20anfragen."
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-4 py-4 rounded-2xl text-sm font-semibold text-emerald-800 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 transition-all"
-                title="WhatsApp Direkt-Kontakt"
-              >
-                <MessageCircle className="w-5 h-5 text-emerald-600" />
-                <span className="sm:hidden">WhatsApp</span>
-              </a>
-            </div>
-
-            <div className="pt-3 flex items-center gap-3">
-              <div className="flex -space-x-2 overflow-hidden">
-                <img className="inline-block h-8 w-8 rounded-full ring-2 ring-white object-cover" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=80&q=80" alt="Kundin" />
-                <img className="inline-block h-8 w-8 rounded-full ring-2 ring-white object-cover" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=80&q=80" alt="Kunde" />
-                <img className="inline-block h-8 w-8 rounded-full ring-2 ring-white object-cover" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=80&q=80" alt="Kundin" />
-              </div>
-              <div className="text-xs text-stone-600">
-                <div className="flex items-center gap-1 text-amber-500">
-                  <Star className="w-3.5 h-3.5 fill-current" />
-                  <Star className="w-3.5 h-3.5 fill-current" />
-                  <Star className="w-3.5 h-3.5 fill-current" />
-                  <Star className="w-3.5 h-3.5 fill-current" />
-                  <Star className="w-3.5 h-3.5 fill-current" />
-                  <span className="font-bold text-stone-800 ml-1">4.9 / 5</span>
-                </div>
-                <span>Vertraut von Hundebesitzern in der Region</span>
-              </div>
-            </div>
-
           </div>
 
-          <div className="lg:col-span-5 relative">
-            <div className="relative mx-auto max-w-md lg:max-w-none">
-              <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white aspect-[4/5] group">
-                <img
-                  src="https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?auto=format&fit=crop&w=1000&q=80"
-                  alt="Gepflegter Hund nach professionellem Schnitt bei Hundesalon Giunia"
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-stone-900/60 via-transparent to-transparent" />
-                <div className="absolute bottom-4 left-4 right-4 text-white text-left">
-                  <p className="text-xs uppercase tracking-widest text-stone-200 font-semibold">Ergebnis-Garantie</p>
-                  <p className="font-serif-luxury text-lg font-medium text-white">„Frisch gestylt, fluffig &amp; glücklich.”</p>
-                </div>
-              </div>
+          <div className="lg:col-span-4 space-y-4 lg:pl-6 lg:border-l border-stone-200">
+            <p className="text-sm text-stone-600 leading-relaxed">
+              Willkommen bei <strong>Hundesalon Giunia</strong>. Wir verbinden präzise rassetypische Scherenschnitte
+              mit absoluter Ruhe, geduldiger Zuwendung und 100% natürlicher Bio-Kosmetik.
+            </p>
 
-              <div className="absolute -top-4 -left-4 sm:-left-6 bg-white/95 backdrop-blur-md rounded-2xl p-3 shadow-xl border border-stone-100 flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-[var(--color-primary-light)] flex items-center justify-center text-[var(--color-primary)]">
-                  <Heart className="w-5 h-5 fill-current" />
-                </div>
-                <div className="text-left">
-                  <p className="text-xs font-bold text-stone-900">100% Stressfrei</p>
-                  <p className="text-[11px] text-stone-500">Sanfte Berührung &amp; Pausen</p>
-                </div>
-              </div>
-
-              <div className="absolute -bottom-5 -right-4 sm:-right-6 bg-white/95 backdrop-blur-md rounded-2xl p-3.5 shadow-xl border border-stone-100 flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-emerald-50 flex items-center justify-center text-emerald-600">
-                  <Sparkles className="w-5 h-5" />
-                </div>
-                <div className="text-left">
-                  <p className="text-xs font-bold text-stone-900">Bio Naturkosmetik</p>
-                  <p className="text-[11px] text-stone-500">Frei von Silikonen &amp; Parabenen</p>
-                </div>
-              </div>
-
+            <div className="flex items-center gap-4 pt-1">
+              <button
+                onClick={onOpenBooking}
+                className="px-6 py-3 rounded-full text-xs font-bold text-white bg-[var(--color-primary)] hover:bg-[var(--color-primary-hover)] shadow-md shadow-[var(--color-primary)]/25 transition-all hover:scale-105 active:scale-95 cursor-pointer"
+              >
+                Termin anfragen
+              </button>
+              <a
+                href="#leistungen"
+                className="inline-flex items-center gap-1 text-xs font-semibold text-stone-800 hover:text-[var(--color-primary)] transition-colors group"
+              >
+                <span>Preise &amp; Menü</span>
+                <ArrowDownRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:translate-y-0.5" />
+              </a>
             </div>
           </div>
 
         </div>
+
+        {/* Hero Visual Collage (Editorial Asymmetry) */}
+        <div className="pt-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          
+          {/* Main Large Editorial Image */}
+          <div className="lg:col-span-7 relative">
+            <div className="relative rounded-[2.5rem] overflow-hidden aspect-[16/11] shadow-2xl border border-stone-200/80 group">
+              <img
+                src="https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?auto=format&fit=crop&w=1200&q=80"
+                alt="Boutique Hundesalon Giunia"
+                className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
+              
+              <div className="absolute bottom-6 left-6 right-6 flex items-end justify-between text-white">
+                <div>
+                  <p className="text-[11px] font-bold uppercase tracking-widest text-stone-300">Atelier Standard</p>
+                  <p className="font-serif-luxury text-xl sm:text-2xl font-medium">Individuelle Einzelführung &amp; Kuschelpausen</p>
+                </div>
+                <div className="hidden sm:flex items-center gap-1.5 bg-white/20 backdrop-blur-md px-3.5 py-1.5 rounded-full text-xs font-medium">
+                  <Sparkles className="w-3.5 h-3.5 text-amber-300" />
+                  <span>100% Bio-Shampoo</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Floating Glass Quality Badge */}
+            <div className="absolute -bottom-6 -left-4 sm:left-6 bg-white/95 backdrop-blur-md px-5 py-3.5 rounded-2xl shadow-xl border border-stone-200/80 flex items-center gap-3.5">
+              <div className="w-10 h-10 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center font-bold text-sm">
+                <Star className="w-5 h-5 fill-current" />
+              </div>
+              <div>
+                <div className="flex items-center gap-1 text-xs font-bold text-stone-900">
+                  <span>4.9 / 5.0 Google Bewertung</span>
+                </div>
+                <p className="text-[11px] text-stone-500">Aus über 180 echten Kundenstimmen</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Right Side Editorial Story & Feature Blocks */}
+          <div className="lg:col-span-5 space-y-6 lg:pl-4">
+            
+            {/* Editorial Feature 1: No Sedation */}
+            <div className="p-6 rounded-3xl bg-white border border-stone-200/80 shadow-2xs hover:border-[var(--color-primary)]/40 transition-colors">
+              <div className="flex items-center gap-3 mb-2">
+                <div className="w-8 h-8 rounded-lg bg-emerald-50 text-emerald-700 flex items-center justify-center">
+                  <ShieldCheck className="w-4 h-4" />
+                </div>
+                <h3 className="font-serif-luxury text-lg font-bold text-stone-900">100% ohne Narkose &amp; Fixierung</h3>
+              </div>
+              <p className="text-xs text-stone-600 leading-relaxed">
+                Wir arbeiten niemals mit Beruhigungsmitteln oder Zwang. Jedes Tier wird mit sanfter Führung und Geduld begleitet.
+              </p>
+            </div>
+
+            {/* Editorial Feature 2: Ultrasound Teeth Cleaning */}
+            <div className="p-6 rounded-3xl bg-white border border-stone-200/80 shadow-2xs hover:border-[var(--color-primary)]/40 transition-colors">
+              <div className="flex items-center gap-3 mb-2">
+                <div className="w-8 h-8 rounded-lg bg-[var(--color-primary-light)] text-[var(--color-primary)] flex items-center justify-center">
+                  <Sparkles className="w-4 h-4" />
+                </div>
+                <h3 className="font-serif-luxury text-lg font-bold text-stone-900">Emmi-Pet Ultraschall</h3>
+              </div>
+              <p className="text-xs text-stone-600 leading-relaxed">
+                Geräuschlose, vibrationsfreie Zahnreinigung gegen Zahnstein und Maulgeruch – schonend und ohne Tierarzt-Narkose.
+              </p>
+            </div>
+
+            {/* Quick WhatsApp Concierge Bar */}
+            <div className="p-5 rounded-3xl bg-stone-900 text-white flex items-center justify-between gap-4">
+              <div>
+                <p className="text-xs font-bold text-white">Frage vorab stellen?</p>
+                <p className="text-[11px] text-stone-400">Direkter Austausch via WhatsApp</p>
+              </div>
+              <a
+                href="https://wa.me/4917612345678?text=Hallo%20Hundesalon%20Giunia,%20ich%20habe%20eine%20kurze%20Frage."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-4 py-2 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-stone-950 font-bold text-xs inline-flex items-center gap-1.5 transition-colors"
+              >
+                <MessageCircle className="w-3.5 h-3.5" />
+                <span>Chat öffnen</span>
+              </a>
+            </div>
+
+          </div>
+
+        </div>
+
       </div>
+
+      {/* Running Luxury Marquee Ticker */}
+      <div className="mt-16 py-3 bg-[#1C1917] text-[#FAF8F5] overflow-hidden whitespace-nowrap border-y border-stone-800">
+        <div className="inline-block animate-marquee text-xs font-semibold uppercase tracking-widest space-x-8">
+          <span>✦ 100% STRESSFREI</span>
+          <span>✦ OHNE NARKOSE &amp; OHNE ZWANG</span>
+          <span>✦ EMMI-PET ULTRASCHALL-ZAHNREINIGUNG</span>
+          <span>✦ 100% BIO-NATURKOSMETIK</span>
+          <span>✦ HYDRAULISCHE EINSTIEGSWANNE</span>
+          <span>✦ BEHUTSAME KATZENPFLEGE</span>
+          <span>✦ RUNDUM-WELLNESS FÜR JEDE GRÖSSE</span>
+          <span>✦ ATELIER HUNDESALON GIUNIA</span>
+        </div>
+      </div>
+
     </section>
   );
 };

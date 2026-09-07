@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Header } from "./components/Header";
 import { Hero } from "./components/Hero";
-import { TrustStats } from "./components/TrustStats";
 import { WhyUs } from "./components/WhyUs";
 import { ServicesPricing } from "./components/ServicesPricing";
 import { BeforeAfterGallery } from "./components/BeforeAfterGallery";
@@ -42,8 +41,7 @@ export function App() {
         {/* Main Content Sections */}
         <main className="flex-grow">
           <Hero onOpenBooking={handleOpenBookingDirect} />
-          <TrustStats />
-          <WhyUs />
+                    <WhyUs />
           <ServicesPricing onSelectService={handleSelectService} />
           <BeforeAfterGallery />
           <Testimonials />

@@ -81,10 +81,11 @@ export const Header = ({ onOpenBooking }: HeaderProps) => {
                 href="https://wa.me/4917612345678?text=Hallo%20Hundesalon%20Giunia,%20ich%20m%C3%B6chte%20gerne%20einen%20Termin%20anfragen."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-full bg-emerald-50 hover:bg-emerald-100 text-emerald-700 border border-emerald-200 flex items-center justify-center transition-all hover:scale-105"
+                className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full text-xs font-semibold text-emerald-800 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 transition-all hover:scale-105"
                 title="WhatsApp Direkt"
               >
-                <MessageCircle className="w-4 h-4" />
+                <MessageCircle className="w-3.5 h-3.5 text-emerald-600" />
+                <span>WhatsApp</span>
               </a>
 
               <button

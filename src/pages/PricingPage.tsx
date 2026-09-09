@@ -26,7 +26,7 @@ export function PricingPage() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Komplettpflege Section - Prominent */}
           <div className="lg:col-span-2 bg-[var(--color-bg)] rounded-[2rem] p-8 md:p-12 shadow-sm border border-stone-100 relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-64 h-64 bg-[var(--color-primary-light)] opacity-30 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3 pointer-events-none"></div>
+
             
             <div className="mb-10 relative z-10">
               <h2 className="text-3xl md:text-4xl font-serif text-[var(--color-primary)] mb-4">{pricingData[0].title}</h2>

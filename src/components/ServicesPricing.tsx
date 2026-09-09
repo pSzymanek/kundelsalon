@@ -11,7 +11,7 @@ export const ServicesPricing = ({ onSelectService }: ServicesPricingProps) => {
 
   return (
     <section id="leistungen" className="py-24 bg-[var(--color-bg-alt)] relative overflow-hidden">
-      <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-[var(--color-primary-light)] opacity-40 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3 pointer-events-none"></div>
+
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         

@@ -59,7 +59,7 @@ export function AboutPage() {
 
         {/* Spa & Wellness Section */}
         <div className="bg-stone-50 rounded-[3rem] p-8 md:p-16 mb-24 relative overflow-hidden border border-stone-100">
-          <div className="absolute top-0 left-0 w-64 h-64 bg-emerald-100 opacity-50 rounded-full blur-3xl -translate-y-1/2 -translate-x-1/2 pointer-events-none"></div>
+
           
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
             <div className="order-2 lg:order-1 space-y-6">

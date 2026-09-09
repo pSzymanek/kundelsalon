@@ -34,7 +34,7 @@ export const BeforeAfterGallery = () => {
   return (
     <section id="verwandlungen" className="py-24 bg-stone-900 text-white relative overflow-hidden text-left">
       {/* Background glow */}
-      <div className="absolute top-0 left-1/3 w-[600px] h-[600px] bg-[var(--color-primary)]/10 rounded-full blur-3xl pointer-events-none" />
+
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         

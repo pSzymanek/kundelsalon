@@ -8,9 +8,7 @@ export const Hero = ({ onOpenBooking }: HeroProps) => {
   return (
     <section className="relative overflow-hidden pt-6 pb-16 lg:pt-10 lg:pb-24 text-left">
       
-      {/* Background ambient accents */}
-      <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-[var(--color-primary-light)] rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 left-10 w-[400px] h-[400px] bg-[var(--color-gold-light)] rounded-full blur-3xl pointer-events-none" />
+      {/* Background ambient accents removed */}
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
@@ -143,19 +141,21 @@ export const Hero = ({ onOpenBooking }: HeroProps) => {
 
         </div>
 
-      </div>
-
       {/* Running Luxury Marquee Ticker */}
-      <div className="mt-16 py-3 bg-[#1C1917] text-[#FAF8F5] overflow-hidden whitespace-nowrap border-y border-stone-800">
-        <div className="inline-block animate-marquee text-xs font-semibold uppercase tracking-widest space-x-8">
-          <span>✦ 100% STRESSFREI</span>
-          <span>✦ OHNE NARKOSE &amp; OHNE ZWANG</span>
-          <span>✦ EMMI-PET ULTRASCHALL-ZAHNREINIGUNG</span>
-          <span>✦ 100% BIO-NATURKOSMETIK</span>
-          <span>✦ HYDRAULISCHE EINSTIEGSWANNE</span>
-          <span>✦ BEHUTSAME KATZENPFLEGE</span>
-          <span>✦ RUNDUM-WELLNESS FÜR JEDE GRÖSSE</span>
-          <span>✦ ATELIER HUNDESALON GIUNIA</span>
+      <div className="mt-16 py-3 bg-[#1C1917] text-[#FAF8F5] overflow-hidden flex border-y border-stone-800">
+        <div className="animate-marquee whitespace-nowrap flex items-center gap-8 text-xs font-semibold uppercase tracking-widest min-w-max">
+          {[...Array(3)].map((_, i) => (
+            <div key={i} className="flex gap-8">
+              <span>✦ 100% STRESSFREI</span>
+              <span>✦ OHNE NARKOSE &amp; OHNE ZWANG</span>
+              <span>✦ EMMI-PET ULTRASCHALL-ZAHNREINIGUNG</span>
+              <span>✦ 100% BIO-NATURKOSMETIK</span>
+              <span>✦ HYDRAULISCHE EINSTIEGSWANNE</span>
+              <span>✦ BEHUTSAME KATZENPFLEGE</span>
+              <span>✦ RUNDUM-WELLNESS FÜR JEDE GRÖSSE</span>
+              <span>✦ ATELIER HUNDESALON GIUNIA</span>
+            </div>
+          ))}
         </div>
       </div>
 

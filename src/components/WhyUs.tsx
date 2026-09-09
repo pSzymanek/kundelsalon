@@ -26,7 +26,7 @@ export const WhyUs = () => {
           
           {/* Bento Tile 1: Main Manifesto Hero (Spans 8 cols) */}
           <div className="md:col-span-8 rounded-[2.5rem] bg-stone-900 text-white p-8 sm:p-12 relative overflow-hidden flex flex-col justify-between shadow-xl min-h-[380px] group">
-            <div className="absolute top-0 right-0 w-96 h-96 bg-[var(--color-primary)]/15 rounded-full blur-3xl pointer-events-none" />
+
             
             <div className="relative z-10">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-stone-200 text-xs font-semibold mb-6">

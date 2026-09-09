@@ -53,14 +53,14 @@ export const Header = ({ onOpenBooking }: HeaderProps) => {
           <div className="flex items-center justify-between gap-4">
             
             {/* Logo */}
-            <a href="#" className="flex items-center gap-2.5 shrink-0 group">
+            <Link to="/" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="flex items-center gap-2.5 shrink-0 group">
               <img
                 src="/logo.png"
                 alt="Hundesalon Giunia"
                 className="h-10 sm:h-11 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
                 style={{ mixBlendMode: "multiply" }}
               />
-            </a>
+            </Link>
 
             {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center space-x-7">

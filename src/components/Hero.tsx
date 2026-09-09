@@ -141,6 +141,8 @@ export const Hero = ({ onOpenBooking }: HeroProps) => {
 
         </div>
 
+      </div>
+
       {/* Running Luxury Marquee Ticker */}
       <div className="mt-16 py-3 bg-[#1C1917] text-[#FAF8F5] overflow-hidden flex border-y border-stone-800">
         <div className="animate-marquee whitespace-nowrap flex items-center gap-8 text-xs font-semibold uppercase tracking-widest min-w-max">

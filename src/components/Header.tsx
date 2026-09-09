@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Calendar, Menu, X, MessageCircle } from "lucide-react";
+import { Link } from "react-router-dom";
 
 interface HeaderProps {
   onOpenBooking: () => void;
@@ -18,12 +19,11 @@ export const Header = ({ onOpenBooking }: HeaderProps) => {
   }, []);
 
   const navLinks = [
-    { label: "Leistungen", href: "#leistungen" },
-    { label: "Philosophie", href: "#philosophie" },
-    { label: "Verwandlungen", href: "#verwandlungen" },
-    { label: "Bewertungen", href: "#bewertungen" },
-    { label: "FAQ", href: "#faq" },
-    { label: "Kontakt", href: "#kontakt" }
+    { label: "Startseite", href: "/" },
+    { label: "Preise & Leistungen", href: "/preise" },
+    { label: "Philosophie", href: "/#philosophie" },
+    { label: "Verwandlungen", href: "/#verwandlungen" },
+    { label: "Kontakt", href: "/#kontakt" }
   ];
 
   return (
@@ -37,8 +37,8 @@ export const Header = ({ onOpenBooking }: HeaderProps) => {
         <span className="hidden sm:inline text-stone-600">•</span>
         <span className="hidden sm:inline text-stone-300">Stressfreie Einzeltermine ohne Narkose</span>
         <span className="hidden md:inline text-stone-600">•</span>
-        <a href="tel:+4917612345678" className="hidden md:inline text-stone-300 hover:text-white transition-colors">
-          Tel: +49 176 1234 5678
+        <a href="tel:+491791700661" className="hidden md:inline text-stone-300 hover:text-white transition-colors">
+          Tel: +49 179 1700661
         </a>
       </div>
 
@@ -64,27 +64,27 @@ export const Header = ({ onOpenBooking }: HeaderProps) => {
             {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center space-x-7">
               {navLinks.map((link) => (
-                <a
+                <Link
                   key={link.label}
-                  href={link.href}
+                  to={link.href}
                   className="text-xs font-semibold uppercase tracking-wider text-stone-600 hover:text-[var(--color-primary)] transition-colors relative group py-1"
                 >
                   {link.label}
                   <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[var(--color-primary)] transition-all duration-200 group-hover:w-full rounded-full" />
-                </a>
+                </Link>
               ))}
             </div>
 
             {/* Actions */}
             <div className="hidden sm:flex items-center gap-2.5 shrink-0">
               <a
-                href="https://wa.me/4917612345678?text=Hallo%20Hundesalon%20Giunia,%20ich%20m%C3%B6chte%20gerne%20einen%20Termin%20anfragen."
+                href="https://wa.me/491791700661?text=Hallo%20Hundesalon%20Giunia,%20ich%20m%C3%B6chte%20gerne%20einen%20Termin%20anfragen."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full text-xs font-semibold text-emerald-800 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 transition-all hover:scale-105"
+                className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full text-xs font-bold text-white bg-[#25D366] hover:bg-[#1EBE53] shadow-md transition-all hover:scale-105"
                 title="WhatsApp Direkt"
               >
-                <MessageCircle className="w-3.5 h-3.5 text-emerald-600" />
+                <MessageCircle className="w-3.5 h-3.5 fill-current" />
                 <span>WhatsApp</span>
               </a>
 
@@ -120,14 +120,14 @@ export const Header = ({ onOpenBooking }: HeaderProps) => {
           {mobileMenuOpen && (
             <div className="lg:hidden pt-4 pb-3 border-t border-stone-100 mt-3 space-y-2 animate-in fade-in slide-in-from-top-2 duration-200">
               {navLinks.map((link) => (
-                <a
+                <Link
                   key={link.label}
-                  href={link.href}
+                  to={link.href}
                   onClick={() => setMobileMenuOpen(false)}
                   className="block px-4 py-2 rounded-xl text-sm font-medium text-stone-700 hover:bg-stone-50 hover:text-[var(--color-primary)]"
                 >
                   {link.label}
-                </a>
+                </Link>
               ))}
               <div className="pt-2 flex flex-col gap-2">
                 <button

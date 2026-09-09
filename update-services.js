@@ -1,4 +1,6 @@
-export interface PricingCategory {
+import fs from 'fs';
+
+const servicesDataContent = `export interface PricingCategory {
   id: string;
   title: string;
   description?: string;
@@ -89,3 +91,7 @@ export const pricingData: PricingCategory[] = [
     ]
   }
 ];
+`;
+
+fs.writeFileSync('c:/Users/poczt/Documents/AntiG testowe/groomer_niemiecki/src/data/servicesData.ts', servicesDataContent, 'utf8');
+console.log('Done');

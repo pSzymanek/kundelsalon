@@ -36,11 +36,11 @@ export const LegalModals = ({ type, onClose }: LegalModalProps) => {
             <div className="space-y-4">
               <div>
                 <h4 className="font-bold text-stone-900 text-sm mb-1">Angaben gemäß § 5 TMG:</h4>
-                <p>Hundesalon Giunia<br />Inhaberin: Giunia Mustermann<br />Kurfürstendamm 142<br />10707 Berlin, Deutschland</p>
+                <p>Hundesalon Giunia<br />Inhaberin: Giunia Mustermann<br />Affenbergstr. 5<br />74189 Weinsberg, Deutschland</p>
               </div>
               <div>
                 <h4 className="font-bold text-stone-900 text-sm mb-1">Kontakt:</h4>
-                <p>Telefon: +49 176 1234 5678<br />E-Mail: hallo@hundesalon-giunia.de<br />Website: www.hundesalon-giunia.de</p>
+                <p>Telefon: +49 179 1700661<br />E-Mail: hallo@hundesalon-giunia.de<br />Website: www.hundesalon-giunia.de</p>
               </div>
               <div>
                 <h4 className="font-bold text-stone-900 text-sm mb-1">Umsatzsteuer-Identifikationsnummer:</h4>

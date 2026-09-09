@@ -49,8 +49,8 @@ export const ContactSection = () => {
                   </div>
                   <div>
                     <p className="font-bold text-stone-900">Salon-Standort</p>
-                    <p className="text-stone-600">Kurfürstendamm 142 (Musteradresse)</p>
-                    <p className="text-stone-500">10707 Berlin / Deutschland</p>
+                    <p className="text-stone-600">Affenbergstr. 5</p>
+                    <p className="text-stone-500">74189 Weinsberg / Deutschland</p>
                     <div className="inline-flex items-center gap-1.5 text-[11px] text-emerald-700 font-medium mt-1 bg-emerald-50 px-2 py-0.5 rounded-md">
                       <Car className="w-3.5 h-3.5" />
                       <span>Kostenlose Kundenparkplätze im Innenhof</span>
@@ -59,22 +59,22 @@ export const ContactSection = () => {
                 </div>
 
                 <div className="flex items-start gap-3">
-                  <div className="w-9 h-9 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0 mt-0.5">
+                  <div className="w-9 h-9 rounded-xl bg-emerald-50 text-[#25D366] flex items-center justify-center shrink-0 mt-0.5">
                     <Phone className="w-5 h-5" />
                   </div>
-                  <div>
-                    <p className="font-bold text-stone-900">Telefon &amp; WhatsApp</p>
-                    <a href="tel:+4917612345678" className="text-stone-700 hover:text-[var(--color-primary)] block">
-                      +49 176 1234 5678
+                  <div className="w-full">
+                    <p className="font-bold text-stone-900 mb-1">Telefon &amp; WhatsApp</p>
+                    <a href="tel:+491791700661" className="text-stone-700 hover:text-[var(--color-primary)] text-lg mb-3 block">
+                      +49 179 1700661
                     </a>
                     <a
-                      href="https://wa.me/4917612345678"
+                      href="https://wa.me/491791700661"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-emerald-700 font-semibold inline-flex items-center gap-1 mt-0.5 hover:underline"
+                      className="flex items-center justify-center w-full gap-2 bg-[#25D366] hover:bg-[#1EBE53] text-white px-5 py-3 rounded-xl font-bold shadow-md hover:shadow-lg transition-all"
                     >
-                      <MessageCircle className="w-3.5 h-3.5" />
-                      <span>Jetzt WhatsApp Chat starten</span>
+                      <MessageCircle className="w-5 h-5 fill-current" />
+                      <span>Chat auf WhatsApp starten</span>
                     </a>
                   </div>
                 </div>

@@ -1,4 +1,5 @@
 import { Heart, Phone, Mail, MapPin, Calendar } from "lucide-react";
+import { Link } from "react-router-dom";
 
 interface FooterProps {
   onOpenLegal: (type: "impressum" | "datenschutz" | "agb") => void;
@@ -52,13 +53,13 @@ export const Footer = ({ onOpenLegal, onOpenBooking }: FooterProps) => {
               Navigation
             </h4>
             <ul className="space-y-2 text-xs text-stone-400">
-              <li><a href="#" className="hover:text-white transition-colors">Startseite</a></li>
-              <li><a href="#leistungen" className="hover:text-white transition-colors">Leistungen &amp; Preise</a></li>
-              <li><a href="#warum-giunia" className="hover:text-white transition-colors">Warum Giunia?</a></li>
-              <li><a href="#vorher-nachher" className="hover:text-white transition-colors">Vorher &amp; Nachher Galerie</a></li>
-              <li><a href="#bewertungen" className="hover:text-white transition-colors">Google Kundenstimmen (4.9★)</a></li>
-              <li><a href="#faq" className="hover:text-white transition-colors">Häufige Fragen (FAQ)</a></li>
-              <li><a href="#kontakt" className="hover:text-white transition-colors">Kontakt &amp; Anfahrt</a></li>
+              <li><Link to="/" className="hover:text-white transition-colors">Startseite</Link></li>
+              <li><Link to="/preise" className="hover:text-white transition-colors">Leistungen &amp; Preise</Link></li>
+              <li><a href="/#warum-giunia" className="hover:text-white transition-colors">Warum Giunia?</a></li>
+              <li><a href="/#vorher-nachher" className="hover:text-white transition-colors">Vorher &amp; Nachher Galerie</a></li>
+              <li><a href="/#bewertungen" className="hover:text-white transition-colors">Google Kundenstimmen (4.9★)</a></li>
+              <li><a href="/#faq" className="hover:text-white transition-colors">Häufige Fragen (FAQ)</a></li>
+              <li><a href="/#kontakt" className="hover:text-white transition-colors">Kontakt &amp; Anfahrt</a></li>
             </ul>
           </div>
 
@@ -69,11 +70,11 @@ export const Footer = ({ onOpenLegal, onOpenBooking }: FooterProps) => {
             <ul className="space-y-2.5 text-xs text-stone-400">
               <li className="flex items-start gap-2">
                 <MapPin className="w-4 h-4 text-[var(--color-primary)] shrink-0 mt-0.5" />
-                <span>Kurfürstendamm 142, 10707 Berlin</span>
+                <span>Affenbergstr. 5, 74189 Weinsberg</span>
               </li>
               <li className="flex items-center gap-2">
                 <Phone className="w-4 h-4 text-emerald-500 shrink-0" />
-                <a href="tel:+4917612345678" className="hover:text-white">+49 176 1234 5678</a>
+                <a href="tel:+491791700661" className="hover:text-white">+49 179 1700661</a>
               </li>
               <li className="flex items-center gap-2">
                 <Mail className="w-4 h-4 text-blue-400 shrink-0" />

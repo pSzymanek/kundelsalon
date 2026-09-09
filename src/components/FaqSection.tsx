@@ -74,7 +74,7 @@ export const FaqSection = () => {
             </div>
           </div>
           <a
-            href="https://wa.me/4917612345678"
+            href="https://wa.me/491791700661"
             target="_blank"
             rel="noopener noreferrer"
             className="shrink-0 px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold tracking-wide transition-colors"

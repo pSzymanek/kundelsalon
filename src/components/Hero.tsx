@@ -123,19 +123,19 @@ export const Hero = ({ onOpenBooking }: HeroProps) => {
             </div>
 
             {/* Quick WhatsApp Concierge Bar */}
-            <div className="p-5 rounded-3xl bg-stone-900 text-white flex items-center justify-between gap-4">
+            <div className="p-5 rounded-3xl bg-[#25D366] text-white flex items-center justify-between gap-4 shadow-xl shadow-[#25D366]/20">
               <div>
-                <p className="text-xs font-bold text-white">Frage vorab stellen?</p>
-                <p className="text-[11px] text-stone-400">Direkter Austausch via WhatsApp</p>
+                <p className="text-sm font-bold text-white mb-0.5">Termin via WhatsApp</p>
+                <p className="text-xs text-white/90 font-medium">Schnell &amp; unkompliziert anfragen</p>
               </div>
               <a
-                href="https://wa.me/4917612345678?text=Hallo%20Hundesalon%20Giunia,%20ich%20habe%20eine%20kurze%20Frage."
+                href="https://wa.me/491791700661?text=Hallo%20Hundesalon%20Giunia,%20ich%20habe%20eine%20kurze%20Frage."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-4 py-2 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-stone-950 font-bold text-xs inline-flex items-center gap-1.5 transition-colors"
+                className="px-5 py-2.5 rounded-xl bg-white text-[#25D366] hover:bg-stone-50 font-bold text-sm inline-flex items-center gap-2 transition-all hover:scale-105"
               >
-                <MessageCircle className="w-3.5 h-3.5" />
-                <span>Chat öffnen</span>
+                <MessageCircle className="w-4 h-4" />
+                <span>Chat starten</span>
               </a>
             </div>
 

@@ -6,6 +6,7 @@ import { BookingCalculatorModal } from "./components/BookingCalculatorModal";
 import { LegalModals } from "./components/LegalModals";
 import { Home } from "./pages/Home";
 import { PricingPage } from "./pages/PricingPage";
+import { AboutPage } from "./pages/AboutPage";
 
 import type { ServiceItem } from "./types";
 import { FloatingWhatsApp } from "./components/FloatingWhatsApp";
@@ -37,6 +38,7 @@ export function App() {
         <Routes>
           <Route path="/" element={<Home onOpenBooking={handleOpenBookingDirect} onSelectService={handleSelectService} />} />
           <Route path="/preise" element={<PricingPage />} />
+          <Route path="/ueber-uns" element={<AboutPage />} />
         </Routes>
 
         <Footer

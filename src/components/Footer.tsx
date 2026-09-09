@@ -55,6 +55,7 @@ export const Footer = ({ onOpenLegal, onOpenBooking }: FooterProps) => {
             <ul className="space-y-2 text-xs text-stone-400">
               <li><Link to="/" className="hover:text-white transition-colors">Startseite</Link></li>
               <li><Link to="/preise" className="hover:text-white transition-colors">Leistungen &amp; Preise</Link></li>
+              <li><Link to="/ueber-uns" className="hover:text-white transition-colors">Über uns</Link></li>
               <li><a href="/#warum-giunia" className="hover:text-white transition-colors">Warum Giunia?</a></li>
               <li><a href="/#vorher-nachher" className="hover:text-white transition-colors">Vorher &amp; Nachher Galerie</a></li>
               <li><a href="/#bewertungen" className="hover:text-white transition-colors">Google Kundenstimmen (4.9★)</a></li>

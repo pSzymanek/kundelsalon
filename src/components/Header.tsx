@@ -64,16 +64,22 @@ export const Header = ({ onOpenBooking }: HeaderProps) => {
 
             {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center space-x-7">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.label}
-                  to={link.href}
-                  className="text-xs font-semibold uppercase tracking-wider text-stone-600 hover:text-[var(--color-primary)] transition-colors relative group py-1"
-                >
-                  {link.label}
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[var(--color-primary)] transition-all duration-200 group-hover:w-full rounded-full" />
-                </Link>
-              ))}
+              {navLinks.map((link) => {
+                const isHashLink = link.href.includes('#');
+                const className = "text-xs font-semibold uppercase tracking-wider text-stone-600 hover:text-[var(--color-primary)] transition-colors relative group py-1";
+                
+                return isHashLink ? (
+                  <a key={link.label} href={link.href} className={className}>
+                    {link.label}
+                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[var(--color-primary)] transition-all duration-200 group-hover:w-full rounded-full" />
+                  </a>
+                ) : (
+                  <Link key={link.label} to={link.href} className={className}>
+                    {link.label}
+                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[var(--color-primary)] transition-all duration-200 group-hover:w-full rounded-full" />
+                  </Link>
+                );
+              })}
             </div>
 
             {/* Actions */}
@@ -120,16 +126,30 @@ export const Header = ({ onOpenBooking }: HeaderProps) => {
           {/* Mobile dropdown */}
           {mobileMenuOpen && (
             <div className="lg:hidden pt-4 pb-3 border-t border-stone-100 mt-3 space-y-2 animate-in fade-in slide-in-from-top-2 duration-200">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.label}
-                  to={link.href}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="block px-4 py-2 rounded-xl text-sm font-medium text-stone-700 hover:bg-stone-50 hover:text-[var(--color-primary)]"
-                >
-                  {link.label}
-                </Link>
-              ))}
+              {navLinks.map((link) => {
+                const isHashLink = link.href.includes('#');
+                const className = "block px-4 py-2 rounded-xl text-sm font-medium text-stone-700 hover:bg-stone-50 hover:text-[var(--color-primary)]";
+                
+                return isHashLink ? (
+                  <a
+                    key={link.label}
+                    href={link.href}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className={className}
+                  >
+                    {link.label}
+                  </a>
+                ) : (
+                  <Link
+                    key={link.label}
+                    to={link.href}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className={className}
+                  >
+                    {link.label}
+                  </Link>
+                );
+              })}
               <div className="pt-2 flex flex-col gap-2">
                 <button
                   onClick={() => {

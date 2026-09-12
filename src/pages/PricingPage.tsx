@@ -26,46 +26,82 @@ export function PricingPage() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Komplettpflege Section - Prominent */}
           <div className="lg:col-span-2 bg-[var(--color-bg)] rounded-[2rem] p-8 md:p-12 shadow-sm border border-stone-100 relative overflow-hidden">
-
-            
             <div className="mb-10 relative z-10">
-              <h2 className="text-3xl md:text-4xl font-serif text-[var(--color-primary)] mb-4">{pricingData[0].title}</h2>
-              <p className="text-lg text-stone-600 max-w-2xl">{pricingData[0].description}</p>
-            </div>
+               <h2 className="text-3xl md:text-4xl font-serif text-[var(--color-primary)] mb-4">{pricingData[0].title}</h2>
+               <p className="text-lg text-stone-600 max-w-2xl">{pricingData[0].description}</p>
+             </div>
+ 
+             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 relative z-10">
+               <div className="space-y-4">
+                 <h3 className="font-serif text-xl mb-6">Inklusivleistungen:</h3>
+                 <ul className="space-y-3">
+                   {pricingData[0].includes?.map((item, idx) => (
+                     <li key={idx} className="flex items-start gap-3 text-stone-700">
+                       <div className="mt-1 bg-[var(--color-primary-light)] text-[var(--color-primary)] rounded-full p-0.5">
+                         <Check className="w-4 h-4" />
+                       </div>
+                       <span>{item}</span>
+                     </li>
+                   ))}
+                 </ul>
+               </div>
+ 
+               <div className="bg-stone-50 rounded-2xl p-6 md:p-8">
+                 <div className="space-y-4">
+                   {pricingData[0].items.map((item) => (
+                     <div key={item.id} className="flex justify-between items-end border-b border-stone-200 pb-3 last:border-0">
+                       <span className="font-medium text-lg">{item.name}</span>
+                       <div className="text-right">
+                         {item.pricePrefix && <span className="text-sm text-stone-500 mr-1">{item.pricePrefix}</span>}
+                         <span className="font-serif text-xl text-[var(--color-primary)]">{item.price} €</span>
+                       </div>
+                     </div>
+                   ))}
+                 </div>
+               </div>
+             </div>
+          </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 relative z-10">
-              <div className="space-y-4">
-                <h3 className="font-serif text-xl mb-6">Inklusivleistungen:</h3>
-                <ul className="space-y-3">
-                  {pricingData[0].includes?.map((item, idx) => (
-                    <li key={idx} className="flex items-start gap-3 text-stone-700">
-                      <div className="mt-1 bg-[var(--color-primary-light)] text-[var(--color-primary)] rounded-full p-0.5">
-                        <Check className="w-4 h-4" />
-                      </div>
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div className="bg-stone-50 rounded-2xl p-6 md:p-8">
-                <div className="space-y-4">
-                  {pricingData[0].items.map((item) => (
-                    <div key={item.id} className="flex justify-between items-end border-b border-stone-200 pb-3 last:border-0">
-                      <span className="font-medium text-lg">{item.name}</span>
-                      <div className="text-right">
-                        {item.pricePrefix && <span className="text-sm text-stone-500 mr-1">{item.pricePrefix}</span>}
-                        <span className="font-serif text-xl text-[var(--color-primary)]">{item.price} €</span>
-                      </div>
-                    </div>
-                  ))}
+          {/* Premium Blovi Spa Section */}
+          <div className="lg:col-span-2 bg-stone-900 text-white rounded-[2rem] p-8 md:p-12 shadow-xl overflow-hidden relative">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
+              <div className="order-2 lg:order-1 space-y-6">
+                <div className="inline-block py-1 px-3 rounded-full bg-white/10 text-emerald-400 text-xs font-bold tracking-wider uppercase shadow-sm">
+                  Premium Wellness
                 </div>
+                <h3 className="text-3xl md:text-4xl font-serif text-white">Blovi Spa &amp; Ozontherapie</h3>
+                <p className="text-stone-300 text-lg">
+                  Entdecken Sie unsere exklusiven Behandlungen in der hochmodernen Blovi Spa Wanne.
+                  Perfekt für Allergiker, bei Hautproblemen oder einfach für pure Entspannung dank Mikrobäschen und Lichttherapie.
+                </p>
+                
+                <div className="bg-white/5 rounded-2xl p-6 border border-white/10 mt-6">
+                  <div className="space-y-4">
+                    {pricingData.find(c => c.id === 'wellness')?.items.map((item) => (
+                      <div key={item.id} className="flex justify-between items-center border-b border-white/10 pb-3 last:border-0">
+                        <div>
+                          <div className="font-medium text-stone-200 text-lg">{item.name}</div>
+                          {item.tagline && <div className="text-sm text-stone-400 mt-1">{item.tagline}</div>}
+                        </div>
+                        <div className="text-right whitespace-nowrap pl-4">
+                          {item.pricePrefix && <span className="text-sm text-emerald-400/80 mr-1">{item.pricePrefix}</span>}
+                          <span className="font-serif text-xl text-emerald-400 font-medium">
+                            {item.price} €
+                          </span>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+              <div className="order-1 lg:order-2 rounded-2xl overflow-hidden aspect-[4/3]">
+                <img src="/about/blovi-spa.jpg" alt="Blovi Spa Wanne" className="w-full h-full object-cover" />
               </div>
             </div>
           </div>
 
           {/* Other Categories */}
-          {pricingData.slice(1).map((category) => (
+          {pricingData.filter(c => c.id !== 'komplettpflege' && c.id !== 'wellness').map((category) => (
             <div key={category.id} className="bg-[var(--color-bg)] rounded-[2rem] p-8 shadow-sm border border-stone-100">
               <h3 className="text-2xl font-serif text-[var(--color-primary)] mb-3">{category.title}</h3>
               {category.description && <p className="text-stone-600 mb-8">{category.description}</p>}
